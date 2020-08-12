@@ -1,0 +1,127 @@
+{
+    "themes": ["Generico", "GOT", "Brasil"],
+    "names": [{
+            "firstname": "Joseph",
+            "lastname": "Bigbox",
+            "gender": "masculine",
+            "themes": ["Brasil"]
+        },
+        {
+            "firstname": "Guax",
+            "lastname": "Null",
+            "gender": "masculine",
+            "themes": ["Brasil", "Generico"]
+        },
+        {
+            "firstname": "Helena",
+            "lastname": "Sant",
+            "gender": "feminine",
+            "themes": ["Brasil", "Generico"]
+        },
+        {
+            "firstname": "John",
+            "lastname": "Snow",
+            "gender": "masculine",
+            "themes": ["GOT"]
+        }
+    ],
+    "items": [{
+            "name": "Berimbau",
+            "description": "De um timbre único e contagiante",
+            "themes": ["Brasil"]
+        },
+        {
+            "name": "Chinelo",
+            "description": "Serve para pisar em cima. E para arremessar.",
+            "themes": ["Brasil"]
+        },
+        {
+            "name": "Chicote",
+            "description": "Pertenceu ao Beto Carrero e tem um longo alcance",
+            "themes": ["Brasil", "Generico"]
+        },
+        {
+            "name": "Espada Agulha",
+            "description": "Cuidado. Se a Arya te pegar, lascou.",
+            "themes": ["GOT"]
+        },
+        {
+            "name": "Adaga",
+            "description": "Bem... Essa é conhecida, né?",
+            "themes": ["Generico"]
+        }
+    ],
+    "features": [{
+        "text_masc": "Chato",
+        "text_fem": "Chata",
+        "description": "Ninguém te aguenta muito tempo",
+        "is_good": false,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Divertido",
+        "text_fem": "Divertida",
+        "description": "Você levanta o astral de qualquer grupo.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Inteligente",
+        "text_fem": "Inteligente",
+        "description": "Você consegue decifrar enigmas bem rápido.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Criativo",
+        "text_fem": "Criativa",
+        "description": "Você consegue ter umas idéias bem boas.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Fedorento",
+        "text_fem": "Fedorenta",
+        "description": "Seu cheiro não é lá muito agradável.",
+        "is_good": false,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Alto",
+        "text_fem": "Alta",
+        "description": "Bem, o nome já diz tudo.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Forte",
+        "text_fem": "Forte",
+        "description": "Bem, o nome já diz tudo.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Fraco",
+        "text_fem": "Fraca",
+        "description": "Bem, o nome já diz tudo.",
+        "is_good": false,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Rápido",
+        "text_fem": "Rápida",
+        "description": "Digamos que você foge muito bem.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Lento",
+        "text_fem": "Lenta",
+        "description": "Bem, o nome já diz tudo.",
+        "is_good": false,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Focado",
+        "text_fem": "Focada",
+        "description": "Você consegue se concentrar bem em uma tarefa.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }, {
+        "text_masc": "Distraído",
+        "text_fem": "Distraída",
+        "description": "Você... Ei, o que é aquele negócio preto ali?.",
+        "is_good": true,
+        "themes": ["Generico"]
+    }]
+}
