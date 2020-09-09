@@ -15,7 +15,7 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 
 script:
-  - coverage pytest src/
+  - coverage run  --source=src/ -m pytest src/ && coverage report
 
 after_success:
   - bash < (curl -s https://codecov.io/bash)
