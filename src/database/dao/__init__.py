@@ -1,5 +1,5 @@
 '''Centralize imports'''
-from .features import FeatureDAO  # noqa
-from .items import ItemDAO  # noqa
-from .names import NameDAO  # noqa
-from .themes import ThemeDAO  # noqa
+from .features import *  # noqa
+from .items import *  # noqa
+from .names import *  # noqa
+from .themes import *  # noqa

@@ -10,14 +10,14 @@ def test_db_tables(database):
     '''Validate correct tables in database'''
     tables = database.get_table_names()
 
-    assert 'theme' in tables
-    assert 'name' in tables
-    assert 'item' in tables
-    assert 'feature' in tables
+    assert 'theme' in tables  # nosec
+    assert 'name' in tables  # nosec
+    assert 'item' in tables  # nosec
+    assert 'feature' in tables  # nosec
 
-    assert 'linknametheme' in tables
-    assert 'linkitemtheme' in tables
-    assert 'linkitemtheme' in tables
+    assert 'linknametheme' in tables  # nosec
+    assert 'linkitemtheme' in tables  # nosec
+    assert 'linkitemtheme' in tables  # nosec
 
 
 class TestDbPopulation:
@@ -28,7 +28,7 @@ class TestDbPopulation:
         '''Test populating themes'''
         names_from_db = database.query('SELECT * FROM name').as_dict()
 
-        assert len(names_from_db) == len(mock_data.names)
+        assert len(names_from_db) == len(mock_data.names)  # nosec
 
         mock_full_names = [f'{n.firstname} {n.lastname}'
                            for n in mock_data.names]
@@ -36,30 +36,30 @@ class TestDbPopulation:
         db_full_names = [f'{n["firstname"]} {n["lastname"]}'
                          for n in names_from_db]
 
-        assert set(mock_full_names) - set(db_full_names) == set()
+        assert set(mock_full_names) - set(db_full_names) == set()  # nosec
 
     def test_db_populate_themes(self, database: Database,
                                 mock_data: LoadedDbItemsJson) -> None:
         '''Test populating themes'''
         themes = database.query('SELECT * FROM theme').as_dict()
 
-        assert len(themes) == len(mock_data.themes)
+        assert len(themes) == len(mock_data.themes)  # nosec
 
         db_themes = [t['name'] for t in themes]
 
-        assert set(mock_data.themes) - set(db_themes) == set()
+        assert set(mock_data.themes) - set(db_themes) == set()  # nosec
 
     def test_db_populate_items(self, database: Database,
                                mock_data: LoadedDbItemsJson) -> None:
         '''Test populating items'''
         items = database.query('SELECT * FROM item').as_dict()
 
-        assert len(items) == len(mock_data.items)
+        assert len(items) == len(mock_data.items)  # nosec
 
         db_items = [i['name'] for i in items]
         mock_items = [i.name for i in mock_data.items]
 
-        assert set(mock_items) - set(db_items) == set()
+        assert set(mock_items) - set(db_items) == set()  # nosec
 
     def test_db_populate_link_theme_names(self, database: Database,
                                           mock_data: LoadedDbItemsJson) -> None:
@@ -79,7 +79,7 @@ class TestDbPopulation:
                                    lname=name.lastname).as_dict()
             link_themes = [l['name'] for l in links]
 
-            assert set(link_themes) - set(name.themes) == set()
+            assert set(link_themes) - set(name.themes) == set()  # nosec
 
     def test_db_populate_link_theme_items(self, database: Database,
                                           mock_data: LoadedDbItemsJson) -> None:
@@ -97,7 +97,7 @@ class TestDbPopulation:
                                    iname=item.name).as_dict()
             link_themes = [l['name'] for l in links]
 
-            assert set(link_themes) - set(item.themes) == set()
+            assert set(link_themes) - set(item.themes) == set()  # nosec
 
     def test_db_populate_link_theme_features(self, database: Database,
                                              mock_data: LoadedDbItemsJson) -> None:
@@ -117,4 +117,4 @@ class TestDbPopulation:
                                    tfem=feat.text_fem).as_dict()
             link_themes = [l['name'] for l in links]
 
-            assert set(link_themes) - set(feat.themes) == set()
+            assert set(link_themes) - set(feat.themes) == set()  # nosec

@@ -10,7 +10,7 @@ from src import schemas
 router = APIRouter()
 
 
-@router.get('/items', response_model=List[schemas.ItemModel])
+@router.get('/listing/items', response_model=List[schemas.ItemModel])
 def list_all_items() -> Any:
     '''Return all items on database'''
     dao = ItemDAO()
@@ -18,7 +18,7 @@ def list_all_items() -> Any:
     return dao.list_all()
 
 
-@router.get('/features', response_model=List[schemas.FeatureModel])
+@router.get('/listing/features', response_model=List[schemas.FeatureModel])
 def list_all_features() -> Any:
     '''Return all features on database'''
     dao = FeatureDAO()
@@ -26,7 +26,7 @@ def list_all_features() -> Any:
     return dao.list_all()
 
 
-@router.get('/themes', response_model=List[schemas.ThemeModel])
+@router.get('/listing/themes', response_model=List[schemas.ThemeModel])
 def list_all_themes() -> Any:
     '''Return all themes on database'''
     dao = ThemeDAO()
@@ -34,7 +34,7 @@ def list_all_themes() -> Any:
     return dao.list_all()
 
 
-@router.get('/names', response_model=List[schemas.NameModel])
+@router.get('/listing/names', response_model=List[schemas.NameModel])
 def list_all_names() -> Any:
     '''Return all Names on database'''
     dao = NameDAO()

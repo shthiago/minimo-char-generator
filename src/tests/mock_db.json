@@ -23,6 +23,12 @@
             "lastname": "Snow",
             "gender": "masculine",
             "themes": ["GOT"]
+        },
+        {
+            "firstname": "Ariel",
+            "lastname": "Pescador",
+            "gender": "neutral",
+            "themes": ["Generico"]
         }
     ],
     "items": [{
@@ -38,7 +44,7 @@
         {
             "name": "Chicote",
             "description": "Pertenceu ao Beto Carrero e tem um longo alcance",
-            "themes": ["Brasil", "Generico"]
+            "themes": ["Generico"]
         },
         {
             "name": "Espada Agulha",
@@ -49,6 +55,26 @@
             "name": "Adaga",
             "description": "Bem... Essa é conhecida, né?",
             "themes": ["Generico"]
+        },
+        {
+            "name": "Escudo",
+            "description": "A defesa é o melhor ataque! Pera...",
+            "themes": ["Generico"]
+        },
+        {
+            "name": "Peixeira",
+            "description": "Será que o Lunga exagerou...?",
+            "themes": ["Brasil"]
+        },
+        {
+            "name": "Teaser",
+            "description": "Pode ser útil.",
+            "themes": ["Generico"]
+        },
+        {
+            "name": "Espada longa",
+            "description": "Bem... Essa é conhecida, né?",
+            "themes": ["GOT"]
         }
     ],
     "features": [{
@@ -123,5 +149,41 @@
         "description": "Você... Ei, o que é aquele negócio preto ali?.",
         "is_good": true,
         "themes": ["Generico"]
+    }, {
+        "text_masc": "Ligeiro",
+        "text_fem": "Ligeira",
+        "description": "Você conhece as vielas como ninguém.",
+        "is_good": true,
+        "themes": ["Brasil"]
+    }, {
+        "text_masc": "Mal falado",
+        "text_fem": "Mal falada",
+        "description": "As pessoas fofocam muito sobre você, e não falam bem...",
+        "is_good": false,
+        "themes": ["Brasil"]
+    }, {
+        "text_masc": "Ficha suja",
+        "text_fem": "Ficha suja",
+        "description": "Você tem passagem pela polícia... O que você andou fazendo hein?.",
+        "is_good": false,
+        "themes": ["Brasil"]
+    }, {
+        "text_masc": "Conhecido",
+        "text_fem": "Conhecida",
+        "description": "Você conhece alguém que conhece alguém. E todo mundo conhece você.",
+        "is_good": true,
+        "themes": ["Brasil"]
+    }, {
+        "text_masc": "Capoeirista",
+        "text_fem": "Capoeirista",
+        "description": "Pode não parecer, mas você sabe lutar. E dançar. Ao mesmo tempo.",
+        "is_good": true,
+        "themes": ["Brasil"]
+    }, {
+        "text_masc": "Devedor",
+        "text_fem": "Devedor",
+        "description": "E eventualmente você pode ser cobrado...",
+        "is_good": false,
+        "themes": ["GOT"]
     }]
 }

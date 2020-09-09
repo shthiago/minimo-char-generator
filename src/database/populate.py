@@ -32,7 +32,7 @@ def populate_themes(themes: List[str], database: Database) -> None:
             conn.query(sql, name=name)
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise
@@ -69,7 +69,7 @@ def populate_names(names: List[NameInput], database: Database) -> None:
                        gender=name.gender)
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise
@@ -98,7 +98,7 @@ def populate_names(names: List[NameInput], database: Database) -> None:
 
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise
@@ -132,7 +132,7 @@ def populate_items(items: List[ItemInput], database: Database) -> None:
                        description=item.description)
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise
@@ -159,7 +159,7 @@ def populate_items(items: List[ItemInput], database: Database) -> None:
 
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise
@@ -196,7 +196,7 @@ def populate_features(features: List[FeatureInput], database: Database) -> None:
                        is_good=feature.is_good)
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise
@@ -225,7 +225,7 @@ def populate_features(features: List[FeatureInput], database: Database) -> None:
 
         transaction.commit()
 
-    except IntegrityError as ierror:
+    except IntegrityError as ierror:  # pragma: no cover
         logger.error(ierror)
         transaction.rollback()
         raise

@@ -1,6 +1,6 @@
 '''DAO for themes'''
 
-from typing import List, Dict
+from typing import Any
 
 from records import Database
 
@@ -13,7 +13,7 @@ class ThemeDAO:
     def __init__(self):
         self.__db: Database = get_db()
 
-    def list_all(self) -> List[Dict]:
+    def list_all(self) -> Any:
         '''Return a list with all themes'''
         sql = 'SELECT * FROM theme'
 

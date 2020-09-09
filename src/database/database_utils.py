@@ -8,8 +8,8 @@ from loguru import logger
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from src.database.models import Base
 from src.config import settings
+from src.database.models import Base
 from src.database.models import (NameInput, ItemInput,
                                  LoadedDbItemsJson, FeatureInput)
 
@@ -17,12 +17,12 @@ from src.database.models import (NameInput, ItemInput,
 def get_db() -> Database:
     '''Return database object for queries'''
     if settings.TESTING:
-        if settings.TEST_DB_URL is None:
+        if settings.TEST_DB_URL is None:  # pragma: no cover
             logger.critical('Test database not set')
             sys.exit(1)
 
         database = Database(settings.TEST_DB_URL)
-    else:
+    else:  # pragma: no cover
         database = Database(settings.DB_URL)
 
     return database
@@ -39,90 +39,102 @@ def init_database(db_url: str) -> None:
 
 def __load_items(json_data: dict, theme_names: List[str]) -> List[ItemInput]:
     '''Load items from json'''
-    items = []
-    if 'items' in json_data and isinstance(json_data['items'], list):
-        for item in json_data['items']:
-            try:
-                themes = []
-                for theme in item['themes']:
-                    if theme not in theme_names:
-                        logger.error(f'Theme not registered: {theme}')
-                        raise KeyError(theme + ' theme')
+    items: List[ItemInput] = []
+    if 'items' not in json_data \
+            and not isinstance(json_data['items'], list):  # pragma: no cover
+        return items
 
-                    themes.append(theme)
+    for item in json_data['items']:
+        try:
+            themes = []
+            for theme in item['themes']:
+                if theme not in theme_names:  # pragma: no cover
+                    logger.error(f'Theme not registered: {theme}')
+                    raise KeyError(theme + ' theme')
 
-                item_input = ItemInput(
-                    name=item['name'],
-                    description=item.get('description', ''),
-                    themes=themes
-                )
-                items.append(item_input)
+                themes.append(theme)
 
-            except KeyError as exp:
-                logger.error(f'Aborting load of {item}, missing {exp}')
+            item_input = ItemInput(
+                name=item['name'],
+                description=item.get('description', ''),
+                themes=themes
+            )
+            items.append(item_input)
+
+        except KeyError as exp:  # pragma: no cover
+            logger.error(f'Aborting load of {item}, missing {exp}')
 
     return items
 
 
-def __load_names(json_data: dict, theme_names: List[str]) -> List[ItemInput]:
+def __load_names(json_data: dict, theme_names: List[str]) -> List[NameInput]:
     '''Load names from json'''
-    names = []
-    if 'names' in json_data and isinstance(json_data['names'], list):
-        for name in json_data['names']:
-            try:
-                themes = []
-                for theme in name['themes']:
-                    if theme not in theme_names:
-                        logger.error(f'Theme not registered: {theme}')
-                        raise KeyError(theme + ' theme')
+    names: List[NameInput] = []
+    if 'names' not in json_data \
+            or not isinstance(json_data['names'], list):  # pragma: no cover
+        return names
 
-                    themes.append(theme)
+    for name in json_data['names']:
+        try:
+            themes = []
+            for theme in name['themes']:
+                if theme not in theme_names:  # pragma: no cover
+                    logger.error(f'Theme not registered: {theme}')
+                    raise KeyError(theme + ' theme')
 
-                name_input = NameInput(
-                    firstname=name['firstname'],
-                    lastname=name['lastname'],
-                    gender=name['gender'].lower(),
-                    themes=themes
-                )
+                themes.append(theme)
 
-                if name_input.gender not in ['feminine', 'masculine']:
-                    raise KeyError('gender in [feminine, masculine]:' +
-                                   name_input.gender)
+            name_input = NameInput(
+                firstname=name['firstname'],
+                lastname=name['lastname'],
+                gender=name['gender'].lower(),
+                themes=themes
+            )
 
-                names.append(name_input)
+            if name_input.gender not in \
+                    settings.CHARACTER_GENDER_POSSIBILITIES:  # pragma: no cover
+                raise KeyError('gender not in ' +
+                               str(settings.CHARACTER_GENDER_POSSIBILITIES) +
+                               ':' + name_input.gender)
 
-            except KeyError as exp:
-                logger.error(f'Aborting load of {name}, missing {exp}')
+            names.append(name_input)
+
+        except KeyError as exp:  # pragma: no cover
+            logger.error(f'Aborting load of {name}, missing {exp}')
 
     return names
 
 
-def __load_features(json_data: dict, theme_names: List[str]) -> List[ItemInput]:
+def __load_features(json_data: dict,
+                    theme_names: List[str]) -> List[FeatureInput]:
     '''Load names from json'''
-    features = []
-    if 'features' in json_data and isinstance(json_data['features'], list):
-        for feature in json_data['features']:
-            try:
-                themes = []
-                for theme in feature['themes']:
-                    if theme not in theme_names:
-                        logger.error(f'Theme not registered: {theme}')
-                        raise KeyError(theme + ' theme')
+    features: List[FeatureInput] = []
+    if 'features' not in json_data \
+            or not isinstance(json_data['features'], list):  # pragma: no cover
+        return features
 
-                    themes.append(theme)
+    for feature in json_data['features']:
+        try:
+            themes = []
+            for theme in feature['themes']:
+                if theme not in theme_names:  # pragma: no cover
+                    logger.error(f'Theme not registered: {theme}')
+                    raise KeyError(theme + ' theme')
 
-                feat_input = FeatureInput(
-                    text_masc=feature['text_masc'],
-                    text_fem=feature['text_fem'],
-                    description=feature['description'],
-                    is_good=feature['is_good'],
-                    themes=themes
-                )
+                themes.append(theme)
 
-                features.append(feat_input)
+            feat_input = FeatureInput(
+                text_masc=feature['text_masc'],
+                text_fem=feature['text_fem'],
+                description=feature['description'],
+                is_good=feature['is_good'],
+                themes=themes
+            )
 
-            except KeyError as exp:
-                logger.error(f'Aborting load of {feature}, missing {exp}')
+            features.append(feat_input)
+
+        except KeyError as exp:  # pragma: no cover
+            logger.error(f'Aborting load of {feature}, missing {exp}')
 
     return features
 

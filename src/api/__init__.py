@@ -22,3 +22,4 @@ if settings.BACKEND_CORS_ORIGINS:
     )
 
 app.include_router(endpoints_v1.listing_router, prefix=settings.API_V1_STR)
+app.include_router(endpoints_v1.generation_router, prefix=settings.API_V1_STR)

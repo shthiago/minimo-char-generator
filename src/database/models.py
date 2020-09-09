@@ -1,23 +1,30 @@
 '''Database models specification'''
-import os
+
 from dataclasses import dataclass
-from typing import List
+from typing import List, Any
 
 from sqlalchemy import create_engine
 from sqlalchemy import ForeignKey, CheckConstraint, UniqueConstraint
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 
+from src.config import settings
 
-url = os.environ.get('DB_URL', False)
-if not url:
-    raise Exception('DB_URL not set at environment')
+
+if not settings.TESTING:  # pragma: no cover
+    url = settings.DB_URL
+
+else:  # pragma: no cover
+    url = settings.TEST_DB_URL
+
+if not url:  # pragma: no cover
+    raise Exception('URL not set at environment')
 
 engine = create_engine(url, echo=True)
-Base = declarative_base()
+Base: Any = declarative_base()
 
 
-class Theme(Base):
+class Theme(Base):  # pragma: no cover
     '''Object to hold information about themes'''
     __tablename__ = 'theme'
 
@@ -29,10 +36,10 @@ class Theme(Base):
         self.name = name
 
 
-class Name(Base):
+class Name(Base):  # pragma: no cover
     '''Object to hold information about names for characters'''
     __tablename__ = 'name'
-    gender_values = ('masculine', 'feminine', 'neutral')
+    gender_values = tuple(settings.CHARACTER_GENDER_POSSIBILITIES)
     __table_args__ = (
         CheckConstraint(f'gender IN {gender_values}'),
         UniqueConstraint('firstname', 'lastname')
@@ -50,7 +57,7 @@ class Name(Base):
         self.gender = gender
 
 
-class Feature(Base):
+class Feature(Base):  # pragma: no cover
     '''Object to hold information about characters feature'''
     __tablename__ = 'feature'
 
@@ -69,7 +76,7 @@ class Feature(Base):
         self.is_good = is_good
 
 
-class Item(Base):
+class Item(Base):  # pragma: no cover
     '''Object to hold information about equipments the character can carry'''
     __tablename__ = 'item'
 
@@ -82,7 +89,7 @@ class Item(Base):
         self.name = name
 
 
-class LinkItemTheme(Base):
+class LinkItemTheme(Base):  # pragma: no cover
     '''Object to associate a item with theme, many to many relation'''
     __tablename__ = 'linkitemtheme'
     __table_args__ = (
@@ -99,7 +106,7 @@ class LinkItemTheme(Base):
         self.id_ = id_item
 
 
-class LinkNameTheme(Base):
+class LinkNameTheme(Base):  # pragma: no cover
     '''Object to associate a name with theme, many to many relation'''
     __tablename__ = 'linknametheme'
     __table_args__ = (
@@ -116,7 +123,7 @@ class LinkNameTheme(Base):
         self.id_name = id_name
 
 
-class LinkFeatureTheme(Base):
+class LinkFeatureTheme(Base):  # pragma: no cover
     '''Object to associate a feature with theme, many to many relation'''
     __tablename__ = 'linkfeaturetheme'
     __table_args__ = (
