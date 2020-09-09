@@ -2,4 +2,6 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: run
+  web: 
+    command: 
+      - run
