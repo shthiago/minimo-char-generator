@@ -28,7 +28,7 @@ coverage:
 	@coverage report
 
 run:
-	@uvicorn --host 0.0.0.0 src.api:app
+	@uvicorn --host 0.0.0.0 --port 5000 src.api:app
 
 run-reload:
 	@uvicorn src.api:app --reload
