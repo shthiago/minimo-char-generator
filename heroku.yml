@@ -4,4 +4,4 @@ build:
 run:
   web: 
     command: 
-      - run
+      - bash -c "make run"
