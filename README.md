@@ -19,7 +19,7 @@ Atualmente, o conteúdo do banco de dados está apenas em português (e a aplica
 
 # Uso
 
-A API está disponível [aqui](), com docmentação disponível [aqui]()
+A API está disponível [aqui](https://minimo-char-generator.herokuapp.com/), com documentação disponível [aqui](https://minimo-char-generator.herokuapp.com/docs)
 
 # TODO
 
