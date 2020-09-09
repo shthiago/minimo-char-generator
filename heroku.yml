@@ -4,4 +4,4 @@ build:
 run:
   web: 
     command: 
-      - bash -c "make run"
+      - bash -c "poetry run make run"
