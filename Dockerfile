@@ -16,7 +16,9 @@ COPY pyproject.toml .
 # Install poetry
 RUN pip install "poetry==${POETRY_VERSION}"
 
-RUN poetry install --no-dev
+RUN poetry export -f requirements.txt > requirements.txt
+
+RUN pip install -r requirements.txt
 
 # Entrypoint settings
 COPY scripts/entrypoint.sh ./entrypoint.sh
