@@ -8,7 +8,7 @@ O Mínimo RPG é um RPG minimalista, criado para aventuras curtas (one-shots). S
 
 <img src="https://minimorpg.com/imagens/logo.png"
      alt="Minimo Logo"
-     style="max-width: 400px;" />
+     width="200"/>
 
 
 Atualmente, o conteúdo do banco de dados está apenas em português (e a aplicação não tem suporte para múltiplos idiomas **ainda**).
