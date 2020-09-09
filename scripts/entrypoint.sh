@@ -3,7 +3,7 @@
 case $1 in
     run)
         echo "Running server"
-        poetry run make run
+        poetry run uvicorn --host 0.0.0.0 --port 5000 src.api:app
         ;;
 
     test)
