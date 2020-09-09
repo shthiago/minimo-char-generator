@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.com/sththiago/mnimo-char-generator.svg?branch=master)](https://travis-ci.com/sththiago/mnimo-char-generator) ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
+[![Build Status](https://travis-ci.com/sththiago/mnimo-char-generator.svg?branch=master)](https://travis-ci.com/sththiago/mnimo-char-generator) ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg)  [![codecov](https://codecov.io/gh/sththiago/mnimo-char-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/sththiago/mnimo-char-generator)
+
+
 
 # RPG character creator for Mínimo RPG
 
