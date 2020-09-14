@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/sththiago/minimo-char-generator.svg?branch=master)](https://travis-ci.com/sththiago/minimo-char-generator) ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg)  [![codecov](https://codecov.io/gh/sththiago/minimo-char-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/sththiago/minimo-char-generator)
+[![Build Status](https://travis-ci.com/shthiago/minimo-char-generator.svg?branch=master)](https://travis-ci.com/shthiago/minimo-char-generator) ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg)  [![codecov](https://codecov.io/gh/sththiago/minimo-char-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/sththiago/minimo-char-generator)
 
 
 
